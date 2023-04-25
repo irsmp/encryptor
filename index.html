@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="apple-touch-icon" href="assets/ico/favicon.png">
+  <link rel="icon" href="assets/ico/favicon.png">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <script defer src="js/main.js"></script>
+  <title>Encriptador de Texto</title>
+</head>
+<body>
+  <header class="header">
+    <img src="assets/ico/alura-logo.svg" alt="" aria-hidden="true" class="logo">
+  </header>
+  <main class="main">
+    <figure class="hero">
+      <figcation class="hero-txt">
+        ingrese texto a encriptar / desencriptar
+      </figcation>
+      <img src="assets/img/detective.png" alt="" aria-hidden="true" class="hero-img">
+    </figure>
+
+    <form action="#" id="form" class="form">
+      <div id="msgBox" class="msg-box none">
+        <span id="msgTxt" class="msg-txt"></span>
+      </div>
+      
+      <div class="alert">
+        <img src="assets/ico/alert.svg" alt="" aria-hidden="true" class="ico">
+        <p class="alert-txt">
+          No ingrese números ni caracteres especiales.
+        </p>
+      </div>
+
+      <div id="inputBox" class="input-box block">
+        <textarea id="inputTxt" cols="30" rows="10" class="input-txt" placeholder="Ingrese texto aquí" autocomplete="off" autofocus></textarea>
+        <button id="pasteBtn" class="paste-btn hidden" title="Pegar">
+          <img src="assets/ico/paste.svg" alt="" aria-hidden="true" class="ico">
+        </button>
+      </div>
+
+      <div id="outputBox" class="output-box none">
+        <textarea id="outputTxt" cols="30" rows="10" class="output-txt" autocomplete="off" readonly></textarea>
+        <button id="copyBtn" class="copy-btn" title="Copiar">
+          <img src="assets/ico/copy.svg" alt="" aria-hidden="true" class="ico">
+        </button>
+      </div>
+
+      <div class="btns">
+        <button id="encryptBtn" class="encrypt-btn btn" title="Encriptar">
+          <img src="assets/ico/lock.svg" alt="" aria-hidden="true" class="ico">
+          Encriptar
+        </button>
+        <button type="reset" id="resetBtn" class="reset-btn btn" title="Limpiar">
+          <img src="assets/ico/reload.svg" alt="" aria-hidden="true" class="ico">
+          Limpiar
+        </button>
+        <button id="decryptBtn" class="decrypt-btn btn" title="Desencriptar">
+          <img src="assets/ico/unlock.svg" alt="" aria-hidden="true" class="ico">
+          Desencriptar
+        </button>
+      </div>
+    </form>
+  </main>
+  <footer class="footer">
+    <p class="attr">
+      Challenge del <span class="accent">Programa ONE</span>: <a href="https://www.oracle.com/lad/education/oracle-next-education/" class="attr-lnk" target="_blank">Oracle Next Education</a> y <a href="https://www.aluracursos.com/" class="attr-lnk" target="_blank">alura Latam</a> - Codeado por <a href="#" class="attr-lnk" target="_blank">Vanessa M.</a>
+    </p>
+  </footer>
+</body>
+</html>
