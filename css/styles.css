@@ -31,11 +31,11 @@ body {
   --grad-two: 212 93% 49%;
   --ff-sen: sen;
   --ff-sed: sedgwick;
-  --clr-accent: 48 89% 50%;
   --clr-pri: 210 89% 29%;
   --clr-sec: 211 91% 79%;
-  --clr-neu-l: 0 0% 90%;
-  --clr-neu-d: 0, 0%, 10%;
+  --clr-ter: 217, 79%, 19%;
+  --clr-light: 0 0% 90%;
+  --clr-dark: 48.9 100% 7.5%;
   --radius: .5em;
 }
 
@@ -126,7 +126,7 @@ body {
   gap: .2em;
   font-size: 1.2rem;
   font-weight: 700;
-  color: hsl(var(--clr-neu-l));
+  color: hsl(var(--clr-light));
   background-color: hsl(var(--clr-pri));
   border: .1em solid hsl(var(--clr-pri));
   border-radius: var(--radius);
@@ -144,19 +144,18 @@ body {
 }
 .attr {
   margin: 0;
-  font-size: .85rem;
-  color: hsl(var(--clr-neu-l));
+  font-size: .8rem;
+  color: hsl(var(--clr-ter));
 }
 .attr-lnk {
   font-weight: 700;
   text-decoration: none;
   line-height: 1.7;
-  color: hsl(var(--clr-neu-d));
+  color: hsl(var(--clr-dark));
   position: relative;
 }
 .accent {
   font-weight: 700;
-  color: hsl(var(--clr-accent));
 }
 
 /*  */
@@ -254,14 +253,14 @@ body {
   position: absolute;
   inline-size: 100%;
   block-size: .15em;
-  background-color: hsl(var(--clr-accent));
+  background-color: hsl(var(--clr-dark));
   left: 0;
   bottom: -.25em;
-  transform: scale(0);
+  transform: scale(1);
   transition: transform .3s ease-in;
 }
 .attr-lnk:hover::after {
-  transform: scale(1);
+  transform: scale(0);
 }
 
 
@@ -281,7 +280,7 @@ body {
 }
 
 .btn:hover {
-  color: hsl(var(--clr-neu-d));
+  color: hsl(var(--clr-dark));
   background-color: hsl(var(--clr-sec));
 }
 .btn:active {

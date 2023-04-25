@@ -82,32 +82,53 @@ function decrypt(e) {
   }
 }
 
+
+function toFireFox() {
+  const ua = navigator.userAgent
+  if (ua.match(/Firefox/i)) {
+    $pasteBtn.classList.replace('visible', 'hidden')
+    setTimeout(() => {
+      message('Presione [CTRL][V]', 1300)
+    }, 2000);
+    console.log('fire')
+  }
+}
 let saveToClip
 function copy(e) {
   e.preventDefault()
   if (navigator.clipboard) {
     navigator.clipboard.writeText($outputTxt.value)
-    .then (() => console.log('Copia exitosa 👍'))
+    .then (() => {
+      console.log('Copia exitosa 👍')
+      toFireFox()
+    })
     .catch ((err) => console.error('No se copió 😔 ', err))
   } else if (!navigator.clipboard) {
     $outputTxt.select()
     let saveData = document.execCommand('copy')
     if (saveData) {
       saveToClip = window.getSelection().toString()
-      console.log(saveToClip)
     }
   }
   changeToCopy()
+  message('Copia exitosa 😉', 1000)
 }
 function paste(e) {
   e.preventDefault()
   if(!navigator.clipboard) {
     $inputTxt.value += saveToClip
     $inputTxt.focus()
+    $inputTxt.select()
+  } else {
+    navigator.clipboard.readText()
+    .then ((clipData) => {
+      $inputTxt.value += clipData
+      $inputTxt.focus()
+    })
+    .catch ((err) => console.error('No se pudo pegar 😔 ', err))
   }
+  message('Bien 😉', 1000)
 }
-
-
 
 $inputTxt.addEventListener('input', checkKey)
 $resetBtn.addEventListener('click', reset)
