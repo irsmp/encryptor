@@ -30,6 +30,7 @@ function message(msg, time) {
 function emptyField() {
   message('Ingrese texto ✏️', 1200)
   $inputTxt.focus()
+  $inputTxt.value = ''
 }
 function changeToResult() {
   hideBox($inputBox)
@@ -64,7 +65,7 @@ function reset(e) {
 function encrypt(e) {
   e.preventDefault()
   const data = $inputTxt.value.trim().toLowerCase()
-  if ($inputTxt.value !== '') {
+  if (data !== '') {
     $outputTxt.value = data.replace(/e/g, 'enter').replace(/i/g, 'imes').replace(/a/g, 'ai').replace(/o/g, 'ober').replace(/u/g, 'ufat')
     changeToResult()
   } else {
@@ -74,7 +75,7 @@ function encrypt(e) {
 function decrypt(e) {
   e.preventDefault()
   const data = $inputTxt.value.trim().toLowerCase()
-  if ($inputTxt.value !== '') {
+  if (data !== '') {
     $outputTxt.value = data.replace(/enter/g, 'e').replace(/imes/g, 'i').replace(/ai/g, 'a').replace(/ober/g, 'o').replace(/ufat/g, 'u')
     changeToResult()
   } else {
@@ -90,7 +91,6 @@ function toFireFox() {
     setTimeout(() => {
       message('Presione [CTRL][V]', 1300)
     }, 2000);
-    console.log('fire')
   }
 }
 let saveToClip

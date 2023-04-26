@@ -248,6 +248,11 @@ body {
 }
 
 /*  */
+.input-txt::placeholder {
+  text-transform: initial;
+  color: hsl(var(--clr-pri));
+}
+
 .attr-lnk::after {
   content: '';
   position: absolute;
@@ -263,7 +268,6 @@ body {
   transform: scale(0);
 }
 
-
 /*  */
 .input-txt:focus-visible,
 .output-txt:focus-visible,
@@ -271,12 +275,7 @@ body {
 .copy-btn:focus-visible,
 .paste-btn:focus-visible {
   outline: .2em dotted hsl(var(--clr-pri));
-  outline-offset: .15em;
-}
-
-.input-txt::placeholder {
-  text-transform: initial;
-  color: hsl(var(--clr-pri));
+  outline-offset: .15em;  
 }
 
 .btn:hover {
