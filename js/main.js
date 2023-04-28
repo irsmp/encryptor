@@ -1,12 +1,11 @@
 const d = document
 const $msgBox = d.getElementById('msgBox'),
       $msgTxt = d.getElementById('msgTxt'),
-
+      $form = d.getElementById('form'),
       $inputBox = d.getElementById('inputBox'),
       $outputBox = d.getElementById('outputBox'),
       $inputTxt = d.getElementById('inputTxt'),
       $outputTxt = d.getElementById('outputTxt'),
-
       $pasteBtn = d.getElementById('pasteBtn'),
       $copyBtn = d.getElementById('copyBtn'),
       $encryptBtn = d.getElementById('encryptBtn'),
@@ -60,7 +59,8 @@ function checkKey(e) {
 
 function reset(e) {
   e.preventDefault()
-  location.reload()
+  $form.reset()
+  $inputTxt.focus()
 }
 function encrypt(e) {
   e.preventDefault()
