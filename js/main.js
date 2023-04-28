@@ -60,13 +60,24 @@ function checkKey(e) {
 function reset(e) {
   e.preventDefault()
   $form.reset()
+  hideBox($outputBox)
+  showBox($inputBox)
   $inputTxt.focus()
 }
 function encrypt(e) {
   e.preventDefault()
   const data = $inputTxt.value.trim().toLowerCase()
+  const dictionary = {
+    a: 'ai',
+    e: 'enter',
+    i: 'imes',
+    o: 'ober',
+    u: 'ufat'
+  }
+  const pattern = /[aeiou]/g
   if (data !== '') {
-    $outputTxt.value = data.replace(/e/g, 'enter').replace(/i/g, 'imes').replace(/a/g, 'ai').replace(/o/g, 'ober').replace(/u/g, 'ufat')
+    const result = data.replace(pattern, (match) => dictionary[match])
+    $outputTxt.value = result
     changeToResult()
   } else {
     emptyField()
@@ -75,8 +86,17 @@ function encrypt(e) {
 function decrypt(e) {
   e.preventDefault()
   const data = $inputTxt.value.trim().toLowerCase()
+  const dictionary = {
+    ai: 'a',
+    enter: 'e',
+    imes: 'i',
+    ober: 'o',
+    ufat: 'u'
+  }
+  const pattern = /(ai)|(enter)|(imes)|(ober)|(ufat)/gm
   if (data !== '') {
-    $outputTxt.value = data.replace(/enter/g, 'e').replace(/imes/g, 'i').replace(/ai/g, 'a').replace(/ober/g, 'o').replace(/ufat/g, 'u')
+    const result = data.replace(pattern, (match) => dictionary[match])
+    $outputTxt.value = result
     changeToResult()
   } else {
     emptyField()

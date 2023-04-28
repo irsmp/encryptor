@@ -1,12 +1,15 @@
-# <span style='color: #fbd44c; font-weight: 700;'>Encriptador de Texto 🔒</span>
+<!-- Abril 2023 -->
+
+# **Encriptador de Texto 🔒**
 
 Este es un challenge del Programa ONE - Oracle Next Education y Alura Latam.
 
 Alura nos da un figma como base para replicar el diseño de la página web; pero no deja claro que nosotros podemos modificar el diseño a nuestro criterio.
 
 <br>
+<br>
 
-## <span style='color: #fbd44c; font-weight: 700;'>Challenge</span>
+## **Challenge**
 <br>
 
 🎯 La página debe tener un campo para ingresar texto a encriptar o desencriptar.
@@ -24,34 +27,44 @@ Alura nos da un figma como base para replicar el diseño de la página web; pero
 🎯 Botones de Copiar y/o Pegar que tengan esas mismas funciones.
 
 <br>
+<br>
 
-## <span style='color: #fbd44c; font-weight: 700;'>Capturas de Pantalla</span>
+## **Capturas de Pantalla**
+<br>
 
-📳 Móvil
+📳 ***Móvil***
 
 ![Mobile](./assets/img/mobile.webp)
 
-📱Tablet
+<br>
+
+📱 ***Tablet***
 
 ![Tablet](./assets/img/tablet.webp)
 
-💻 Escritorio
+<br>
+
+💻 ***Escritorio***
 
 ![Desktop](./assets/img/desktop.webp)
 
 <br>
+<br>
 
-## <span style='color: #fbd44c; font-weight: 700;'>Enlaces</span>
+## **Enlaces**
 
 🔗 [Demo](https://irsmp.github.io/encryptor/)
 
 <br>
+<br>
 
-## <span style='color: #fbd44c; font-weight: 700;'>Desarrollado con:</span>
+## **Desarrollado con:**
+
+<br>
 
 📌 HTML semántico.
 
-📌 JS básico
+📌 JavaScript
 
 📌 CSS custom properties
 
@@ -61,14 +74,16 @@ Alura nos da un figma como base para replicar el diseño de la página web; pero
 
 📌 Mobile first
 
+<br>
+<br>
+
+## **¿Qué he aprendido?**
 
 <br>
 
-## <span style='color: #fbd44c; font-weight: 700;'>¿Qué he aprendido?</span>
-
 ✅ Utilizar expresiones regulares: 
 
-  `test` 👉 busca un **String** en la **regExp**. Devuelve un booleano.
+  `.test` 👉 busca un **String** en la **regExp**. Devuelve un booleano.
 
   ```js
   const pattern = /[a-z\s\r\n]/g
@@ -76,18 +91,44 @@ Alura nos da un figma como base para replicar el diseño de la página web; pero
         // code
       }
   ```
+<br>
 
-✅ **`replace`** 👉 método que devuelve un **String nuevo** con todas las coincidencias de un patrón sustituidas por un reemplazo. Concatenación de `replace`.
+✅ **`replace()`** 👉 método que devuelve un **STRING NUEVO** con todas las coincidencias de un patrón sustituidas por un reemplazo. El patrón puede ser un `string` o una `regExp`. El reenplazo puede ser un `string` o una `función`.
+
+🔹 Una forma de reemplazar las vocales es mediante una `CONCATENACIÓN` de `replace()`.
+  - patrón: regExp ➡ /e/g, /i/g, ...
+  - reemplazo: string ➡ 'enter', 'imes', ...
+
+    ```js
+    $outputTxt.value = data.replace(/e/g, 'enter')
+                           .replace(/i/g, 'imes')
+                           ...
+                           .replace(/u/g, 'ufat')
+    ```
+<br>
+
+🔹 Otra forma de reemplazar las vocales es utilizando un **objeto** y crear un *diccionario*. Así en el futuro si queremos podemos agregar otra *llave* al diccionario.
+- patrón: regExp ➡ pattern
+- reemplazo: funcion flecha `=>`, donde:
+  - `match` es el parámetro de la función que vamos a utilizar como valor de coincidencia. 
+  - Con `match` accedemos al valor correspondiente del objeto diccionario, que es entonces devuelto como valor de sustitución.
 
 ```js
-$outputTxt.value = data.replace(/e/g, 'enter').replace(/i/g, 'imes').replace(/a/g, 'ai').replace(/o/g, 'ober').replace(/u/g, 'ufat')
+$const dictionary = {
+    ai: 'a',
+    ...,
+    ufat: 'u'
+  }
+  stringToEncrypt.replace(pattern, (match) => dictionary[match])
 ```
+<br>
 
 ✅ Reemplazar clases de un elemento HTML a través de JS:
 
 ```js
 $pasteBtn.classList.replace('hidden', 'visible')
 ```
+<br>
 
 ✅ `setTimeout` 👉 establece un temporizador que ejecuta un código un vez que el temporizador expira.
 
@@ -96,6 +137,7 @@ setTimeout(() => {
   $msgBox.classList.replace('block', 'none')
 }, 1500)
 ```
+<br>
 
 ✅ Comprobar si el navegador tiene soporte para **`navigator.clipboard`**
 
@@ -105,6 +147,7 @@ if (!navigator.clipboard) {
 }
 // Devuelve True si no tiene soporte
 ```
+<br>
 
 ✅ Copiar / Pegar al clipboard:
 
@@ -149,12 +192,14 @@ if (saveData) {
 // Pasamos el contenido de la variable al textarea que muestra los resultados
 $inputTxt.value += saveToClip
 ```
+<br>
 
 ✅ `userAgent` 👉 muestra información sobre el dispositivo desde donde se invoca; dicha información puede ser del sistema operativo, el navegador utilizado, la versión, etc.
 
 ```js
 const ua = navigator.userAgent
 ```
+<br>
 
 ✅ FireFox no tiene soporte para **`navigator.clipboard.readText`**. En FireFox podemos copiar, pero no pegar a través de la API Clipboard. Entonces, ¿Cómo recuperar el valor copiado del clipboard? No encontre la forma así que utilice un truco 😜:
 
@@ -170,19 +215,23 @@ if (ua.match(/Firefox/i)) {
   }, 2000);
 }
 ```
-
+<br>
 <br>
 
-## <span style='color: #fbd44c; font-weight: 700;'>Recursos útiles</span>
+## Recursos útiles
+<br>
 
 👉 [Alura Latam](https://www.aluracursos.com/)
+
+👉 [Expresiones Regulares](https://regexr.com/)
 
 👉 [Reemplazar varias letras](https://es.stackoverflow.com/questions/522831/funci%C3%B3n-replace-para-reemplazar-varias-letras)
 
 👉 [Clipboard API](https://developer.mozilla.org/es/docs/Web/API/Clipboard_API)
 
 <br>
+<br>
 
-## <span style='color: #fbd44c; font-weight: 700;'>Autora</span>
+## Autora
 
 Vanessa Méndez
